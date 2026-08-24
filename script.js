@@ -11,3 +11,43 @@ cvbutton.addEventListener("click", function () {
     cv.click();
 });
 
+// ================================
+// CONTINUOUS TYPING EFFECT
+// ================================
+
+const text = "I'm Gani Samuel Yavini";
+const typingElement = document.getElementById("typing");
+
+let index = 0;
+let deleting = false;
+
+function typeEffect() {
+
+    if (!deleting) {
+        // Type forward
+        typingElement.textContent = text.slice(0, index);
+        index++;
+
+        if (index > text.length) {
+            deleting = true;
+            setTimeout(typeEffect, 1500);
+            return;
+        }
+
+    } else {
+        // Delete backward
+        typingElement.textContent = text.slice(0, index);
+        index--;
+
+        if (index < 0) {
+            index = 0;
+            deleting = false;
+            setTimeout(typeEffect, 500);
+            return;
+        }
+    }
+
+    setTimeout(typeEffect, deleting ? 70 : 120);
+}
+
+typeEffect();
