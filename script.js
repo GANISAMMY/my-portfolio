@@ -1,15 +1,19 @@
+
 console.log("javascript is connected");
 
 const cvbutton = document.getElementById("cvbutton");
 
 cvbutton.addEventListener("click", function () {
+
     const cv = document.createElement("a");
 
     cv.href = "GANI SAMUEL YAVINI-CV.pdf";
     cv.download = "GANI SAMUEL YAVINI-CV.pdf";
 
     cv.click();
+
 });
+
 
 // ================================
 // CONTINUOUS TYPING EFFECT
@@ -24,24 +28,26 @@ let deleting = false;
 function typeEffect() {
 
     if (!deleting) {
-        // Type forward
+
         typingElement.textContent = text.slice(0, index);
         index++;
 
         if (index > text.length) {
             deleting = true;
+
             setTimeout(typeEffect, 1500);
             return;
         }
 
     } else {
-        // Delete backward
+
         typingElement.textContent = text.slice(0, index);
         index--;
 
         if (index < 0) {
             index = 0;
             deleting = false;
+
             setTimeout(typeEffect, 500);
             return;
         }
@@ -51,3 +57,4 @@ function typeEffect() {
 }
 
 typeEffect();
+

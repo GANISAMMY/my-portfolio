@@ -57,6 +57,45 @@ button {
     position: relative;
     top: 10px;
 }
+/* CV DOWNLOAD BUTTON */
+#cvbutton {
+    /* Makes the link behave like a button */
+    display: inline-block;
+
+    /* Adds space around the button */
+    margin-top: 30px;
+    padding: 10px 35px;
+
+    /* Text styling */
+    font-size: 20px;
+    color: white;
+
+    /* Button background and shape */
+    background: orange;
+    border: none;
+    border-radius: 8px;
+
+    /* Removes the normal link underline */
+    text-decoration: none;
+
+    /* Shows the pointer when hovering */
+    cursor: pointer;
+
+    /* Makes hover animation smooth */
+    transition: 0.3s ease;
+}
+
+/* CV BUTTON HOVER EFFECT */
+#cvbutton:hover {
+    /* Changes the button background */
+    background: white;
+
+    /* Changes the text color */
+    color: orange;
+
+    /* Moves the button slightly upward */
+    transform: translateY(-3px);
+}
 
 
 /* NAVIGATION */
@@ -95,6 +134,19 @@ nav a{
     font-size: x-large;
     position: relative;
     top: 50px;
+
+}
+
+.hero-text h2 {
+    height: 55px;
+    display: flex;
+    align-items: center;
+}
+
+#typing-text {
+    display: inline-block;
+    color: orange;
+    white-space: nowrap;
 }
 
 .image img {
@@ -217,7 +269,7 @@ nav a{
 .contact-form textarea {
     width: 100%;
     padding: 15px;
-    border: none;
+    border: 2px solid transparent;
     outline: none;
     border-radius: 5px;
     font-size: 16px;
@@ -226,6 +278,15 @@ nav a{
 
 .contact-form textarea {
     resize: vertical;
+}
+
+/* CONTACT FORM FOCUS EFFECT */
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border: 2px solid orange;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+    transition: 0.3s ease;
 }
 
 /* SEND BUTTON */
@@ -239,11 +300,23 @@ nav a{
     font-size: 17px;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.3s ease;
 }
 
 .contact-form button:hover {
     background: white;
     color: orange;
+}
+
+/* SEND BUTTON HOVER */
+.contact-form button:hover {
+    background: white;
+    color: orange;
+}
+
+/* SEND BUTTON WHEN CLICKED */
+.contact-form button:active {
+    transform: scale(0.95);
 }
 
 /* PORTFOLIO */
@@ -278,6 +351,13 @@ nav a{
     padding: 20px;
     border-radius: 10px;
     backdrop-filter: blur(5px);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 .project-card img {
@@ -312,5 +392,93 @@ nav a{
     color: orange;
 }
 
+/* PAGE TRANSITION */
 
-    
+body {
+    opacity: 0;
+    animation: pageFadeIn 0.8s ease forwards;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* Changes the navigation link color to orange when the user hovers over it
+   or when the link has the active class */
+nav a:hover,
+nav a.active {
+    color: orange;
+}
+
+/* ============================= */
+/* MOBILE RESPONSIVE DESIGN */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+    /* HEADER */
+    header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    /* NAVIGATION */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    nav a {
+        position: static;
+        margin-left: 0;
+        font-size: 18px;
+    }
+
+    /* HERO */
+    .hero {
+        width: 100%;
+        padding: 50px 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        position: static;
+        width: 100%;
+    }
+
+    .hero-text h2 {
+        height: auto;
+        min-height: 55px;
+        justify-content: center;
+    }
+
+    #typing-text {
+        white-space: normal;
+    }
+
+    /* HERO IMAGE */
+    .image img {
+        width: 200px;
+        left: 0;
+        margin-top: 30px;
+    }
+
+    /* HELLO TEXT */
+    .hello {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+}
