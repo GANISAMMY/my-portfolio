@@ -1,3 +1,4 @@
+
 * {
      margin:0;
      padding:0;
@@ -44,7 +45,7 @@ header{
     right: 330px;
     top: 190px;
 }
-
+/* CV Download Button */
 button {
     margin-top: 30px;
     padding: 10px 35px;
@@ -56,6 +57,14 @@ button {
     cursor: pointer;
     position: relative;
     top: 10px;
+}
+
+
+/* Two-color hover effect */
+
+#cvbutton:hover {
+    background: linear-gradient(90deg, orange, blue);
+    color: white;
 }
 
 
@@ -97,15 +106,6 @@ nav a{
     top: 50px;
 }
 
-.image img {
-    width: 250px;
-    height: auto;
-    position: relative;
-    left: 150px;
-    object-fit: cover;
-    border-radius: 50px;
-      border: 5px solid orange;
-} 
 
 /* ABOUT SECTION */
 
@@ -313,4 +313,66 @@ nav a{
 }
 
 
-    
+    /* Typing text animation */
+#typing {
+    border-right: 2px solid;
+    padding-right: 5px;
+}
+
+
+/* Profile Image */
+
+.profile-image {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    padding: 5px;
+    position: relative;
+    left: 800px;
+    bottom: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+/* Rotating ring */
+
+.profile-image::before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: conic-gradient(
+        orange,
+        blue,
+        orange
+    );
+    animation: rotateBorder 3s linear infinite;
+}
+
+/* Profile picture */
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+    border: 5px solid white;
+}
+
+
+/* Rotation */
+
+@keyframes rotateBorder {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
